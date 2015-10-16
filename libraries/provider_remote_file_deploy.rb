@@ -24,6 +24,7 @@ class Chef
       class Deploy < Chef::Provider::RemoteFile
 
         def initialize(new_resource, run_context)
+          super
           @deploy_resource = new_resource
           @new_resource = Chef::Resource::RemoteFile.new(@deploy_resource.name)
           @new_resource.path ::File.join(@deploy_resource.destination, ::File.basename(@deploy_resource.repository))
