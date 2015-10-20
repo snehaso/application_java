@@ -38,6 +38,7 @@ class Chef
           @current_resource = nil
           @run_context = run_context
           @converge_actions = nil
+          @deployment_strategy ||= Chef::FileContentManagement::Deploy.strategy(true)
         end
 
         def target_revision
